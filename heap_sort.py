@@ -23,20 +23,20 @@ def maxHeapify(array, node, N):
 
     left_child = left(node)
     right_child = right(node)
-    max = node
+    largest = node
 
-    if (left_child <= N) and (array[left_child] > array[max]):
-       max = left_child
+    if (left_child <= N) and (array[left_child] > array[largest]):
+       largest = left_child
 
-    if right_child <= N and array[right_child] > array[max]:
-        max = right_child
+    if right_child <= N and array[right_child] > array[largest]:
+        largest = right_child
 
-    if max != node:
-        temp_node = array[max]
-        array[max] = array[node]
+    if largest != node:
+        temp_node = array[largest]
+        array[largest] = array[node]
         array[node] = temp_node
 
-        maxHeapify(array, max, N)
+        maxHeapify(array, largest, N)
 
 def buildMaxHeap(array, N):
     for i in range(N/2, 0, -1):
